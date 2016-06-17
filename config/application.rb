@@ -21,6 +21,7 @@ module Microposts
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+      config.action_view.embed_authenticity_token_in_remote_forms = true
    config.generators do |g|
       g.stylesheets false
       g.javascripts false
