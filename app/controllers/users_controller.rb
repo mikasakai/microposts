@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :check, only: [:edit, :update]
+  before_action :check, only: [:edit, :update, :following, :followers
+  ]
   
   def show # 追加
    @user = User.find(params[:id])
@@ -34,6 +35,18 @@ class UsersController < ApplicationController
       # 保存に失敗した場合は編集画面へ戻す
       render 'edit'
     end
+  end
+  
+  def following
+    @titlle = "Followings"
+       @user = User.find(params[:id])
+       @users = @user.following_users
+  end
+  
+  def followers
+     @titlle = "Followers"
+       @user = User.find(params[:id])
+       @users =  @user.followers_users
   end
   
  private
