@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check, only: [:edit, :update, :following, :followers
-  ]
+  before_action :check, only: [:edit, :update]
   
   def show # 追加
    @user = User.find(params[:id])
@@ -46,7 +45,7 @@ class UsersController < ApplicationController
   def followers
      @titlle = "Followers"
        @user = User.find(params[:id])
-       @users =  @user.followers_users
+       @users =  @user.follower_users
   end
   
  private
